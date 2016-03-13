@@ -19,5 +19,5 @@ class Plant(ndb.Model):
   timestamp = ndb.DateTimeProperty(auto_now_add=True)
 
   @classmethod
-  def query_book(cls, ancestor_key):
-    return cls.query(ancestor=ancestor_key).order(-cls.date)
+  def query_all(cls):
+      return cls.query().order(-cls.timestamp)

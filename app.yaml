@@ -1,5 +1,5 @@
 application: plant-pulse
-version: 1
+version: 2
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -9,9 +9,20 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /js
+  static_dir: js
+  secure: always
+
+- url: /css
+  static_dir: css
+  secure: always
+  
 - url: .*
   script: main.app
+  secure: always
 
 libraries:
 - name: webapp2
   version: "2.5.2"
+- name: jinja2
+  version: latest

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<div ng-controller="IndexCtrl">
+		{% raw %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">&nbsp;</div>
+			</div>
+			
+			<div class="row" ng-show="show_inprogress">
+				<div class="col-md-4">&nbsp;</div>
+				<div class="col-md-4">
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+							<span>{{ in_progress_txt }}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">&nbsp;</div>
+			</div>
+			
+			<div class="row" ng-show="show_error_alert">
+				<div class="col-md-3">&nbsp;</div>
+				<div class="col-md-6">
+					<div class="alert alert-danger" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+						{{ error_alert_msg }}
+					</div>
+					
+				</div>
+				<div class="col-md-3">&nbsp;</div>
+			</div>
+			
+			<div class="row" ng-show="show_plant_table">
+				<div class="col-md-12">
+					<table id="plant-table" class="display table table-condensed table-striped table-hover">
+						<thead>
+					    	<tr>
+								<th>Date/Time</th>
+					        	<th>Node ID</th>
+					            <th>Pod ID</th>
+					            <th>Node Location</th>
+					            <th>Lux</th>
+					            <th>Broadband</th>
+					            <th>Infrared</th>
+								<th>Air Temp</th>
+								<th>Humidity</th>
+								<th>Heat Index</th>
+								<th>Soil Temp</th>
+								<th>Soil Moist 1</th>
+								<th>Soil Moist 2</th>
+								<th>Plant Voltage</th>
+								<th>Battery Voltage</th>
+					       	</tr>
+						</thead>
+						<tfoot>
+					    	<tr>
+								<th>Date/Time</th>
+					        	<th>Node ID</th>
+					            <th>Pod ID</th>
+					            <th>Node Location</th>
+					            <th>Lux</th>
+					            <th>Broadband</th>
+					            <th>Infrared</th>
+								<th>Air Temp</th>
+								<th>Humidity</th>
+								<th>Heat Index</th>
+								<th>Soil Temp</th>
+								<th>Soil Moist 1</th>
+								<th>Soil Moist 2</th>
+								<th>Plant Voltage</th>
+								<th>Battery Voltage</th>
+					       	</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+		{% endraw %}
+	</div>	
+{% endblock %}
+
+{% block script %}
+	<script src="js/index.js"></script>
+{% endblock %}
